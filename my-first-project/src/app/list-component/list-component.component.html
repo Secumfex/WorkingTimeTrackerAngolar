@@ -1,1 +1,11 @@
-<p>list-component works!</p>
+<h2>My data</h2>
+<ul>
+    <li *ngFor="let data of datas"
+        [class.selected]="data === selectedData"
+        (click)="onSelect(data)">
+        <span>{{data.id}}: {{data.name}}</span>
+    </li>
+</ul>
+
+<!-- We bind the inputComponent.data to this.selectedData -->
+<app-input-component [data]="selectedData"></app-input-component> 

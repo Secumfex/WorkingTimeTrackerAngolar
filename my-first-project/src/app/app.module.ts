@@ -6,12 +6,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ControlareaComponent } from './controlarea/controlarea.component';
 import { ListComponentComponent } from './list-component/list-component.component';
+import { InputComponentComponent } from './input-component/input-component.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ControlareaComponent,
-    ListComponentComponent
+    ListComponentComponent,
+    InputComponentComponent
   ],
   imports: [
     BrowserModule,
