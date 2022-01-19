@@ -20,7 +20,9 @@ export class ListComponentComponent implements OnInit {
   }
 
   getData(): void {
-    this.datas = this.externalDataService.getData(); // TODO Reactive rewrite osing Observable
+    this.externalDataService.getData().subscribe( datas => {
+      this.datas = datas;
+    });
   }
 
   onSelect(data: Data): void {
