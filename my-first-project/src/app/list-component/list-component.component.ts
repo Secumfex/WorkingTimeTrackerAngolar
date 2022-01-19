@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import { Data } from "../data";
-import { DATA } from '../stubdata';
+import { ExternalDataService } from '../external-data.service';
 
 @Component({
   selector: 'app-list-component',
@@ -11,15 +11,19 @@ import { DATA } from '../stubdata';
 export class ListComponentComponent implements OnInit {
   selectedData?: Data;
 
-  datas = DATA;
+  datas: Data[] = [];
 
-  constructor() { }
+  constructor(private externalDataService: ExternalDataService) { }
 
   ngOnInit(): void {
+    this.getData();
+  }
+
+  getData(): void {
+    this.datas = this.externalDataService.getData(); // TODO Reactive rewrite osing Observable
   }
 
   onSelect(data: Data): void {
-    // we want to send the "selection" to the other component (controlarea)
-    this.selectedData = data; // TODO send to service or something. Reactive?
+    this.selectedData = data;
   }
 }
