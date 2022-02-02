@@ -1,6 +1,6 @@
 <h2>Top Data</h2>
 <div class="data-menu">
-    <a *ngFor="let data of datas">
+    <a *ngFor="let data of datas" routerLink="/edit/{{data.id}}">
         {{data.name}}
     </a>
 </div>

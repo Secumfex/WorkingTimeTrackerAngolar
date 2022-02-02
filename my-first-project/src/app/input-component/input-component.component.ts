@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Data } from '../data';
-import { DATA } from '../stubdata';
+import { ExternalDataService } from '../external-data.service';
 
 @Component({
   selector: 'app-input-component',
@@ -9,14 +10,18 @@ import { DATA } from '../stubdata';
 })
 export class InputComponentComponent implements OnInit {
 
-  //The @Input() lets this be bound or injected to other components or something
-  @Input() data?: Data;
+  data?: Data;
 
-  datas = DATA;
-
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private externalDataService: ExternalDataService) { }
 
   ngOnInit(): void {
+
   }
 
+  getData(): void{
+    const id = Number(this.route.snapshot.paramMap.get('id'));
+    this.externalDataService.getData(id)
+  }
 }

@@ -20,7 +20,7 @@ export class ListComponentComponent implements OnInit {
   }
 
   getData(): void {
-    this.externalDataService.getData().subscribe( datas => {
+    this.externalDataService.getDatas().subscribe( datas => {
       this.datas = datas;
     });
   }

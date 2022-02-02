@@ -10,6 +10,7 @@ import { ExternalDataService } from "../external-data.service";
 export class DashboardComponent implements OnInit {
 
   datas?: Data[];
+
   constructor(private externalDataService: ExternalDataService) { }
 
   ngOnInit(): void {
@@ -17,7 +18,7 @@ export class DashboardComponent implements OnInit {
   }
 
   getDatas(): void {
-    this.externalDataService.getData()
+    this.externalDataService.getDatas()
       .subscribe(datas => this.datas = datas.slice(0, 3));
   }
 }
